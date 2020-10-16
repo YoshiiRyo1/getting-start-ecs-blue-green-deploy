@@ -64,16 +64,18 @@ aws elbv2 create-listener --load-balancer-arn ${LBARN} \
 aws ecs create-cluster --cluster-name bluegreen-cluster 
 ```
 
-## ECS サービス作成
-
-
 ## タスク定義
 ECS でコンテナを起動するための設定をします。  
 以下の内容で [bluegreen-task.json](bluegreen-task.json) というファイルを作成します。  
 (aws_account_id はご自身のものへ変更)   
 
+以下のコマンドでタスク定義を登録します。  
 
-## ECS サービス
+```
+aws ecs register-task-definition --cli-input-json file://bluegreen-task.json 
+```
+
+## ECS サービス作成
 ECS サービスを作成します。これによってコンテナが起動します。  
 環境変数は冗長なので、全ての手順を同じターミナルで実行しているのであれば省略して大丈夫です。  
 

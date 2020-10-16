@@ -3,6 +3,7 @@
 ## CodeDeploy
 CodeDeploy で Blue/Green デプロイを行うための設定を行います。  
 作成済み ALB/Target Group を指定します。  
+(account_id  はご自身のものへ変更)  
 
 
 ```
@@ -19,7 +20,7 @@ aws deploy create-application --application-name bluegreen-cluster --compute-pla
 aws deploy create-deployment-group  \
   --application-name bluegreen-cluster \
   --deployment-group-name bluegreen-cluster-group \
-  --service-role-arn arn:aws:iam::880749116261:role/ecsCodeDeployRole \
+  --service-role-arn arn:aws:iam::<account-id>:role/ecsCodeDeployRole \
   --load-balancer-info "targetGroupPairInfoList=[{targetGroups=[{name=${TG01NAME}},{name=${TG02NAME}}],prodTrafficRoute={listenerArns=[${LSNARN}]}}]" \
   --ecs-services serviceName=bluegreen-service,clusterName=bluegreen-cluster \
   --blue-green-deployment-configuration "terminateBlueInstancesOnDeploymentSuccess={action=TERMINATE,terminationWaitTimeInMinutes=5},deploymentReadyOption={actionOnTimeout=CONTINUE_DEPLOYMENT,waitTimeInMinutes=0}" \
