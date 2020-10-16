@@ -58,32 +58,14 @@ aws elbv2 create-listener --load-balancer-arn ${LBARN} \
 
 
 ## ECS クラスターの作成
-ECS クラスターを作成します。
-
-```
-export AWS_DEFAULT_REGION=ap-northeast-1
-
-VPCID=vpc-xxxxxxxxxxxxxxxxx             # ECS クラスターが使う VPC ID
-SUBNET1=subnet-xxxxxxxxxxxxxxxxx        # ECS クラスターが使うパブリックサブネット
-SUBNET2=subnet-yyyyyyyyyyyyyyyyy        # ECS クラスターが使うパブリックサブネット
-ECSSECURITYGROUP=sg-xxxxxxxxxxxxxxxxx    # ECS クラスターが使うセキュリティグループ
-
-ecs-cli configure --cluster my-cluster \
-  --default-launch-type FARGATE \
-  --config-name my-cluster 
-
-ecs-cli up --ecs-profile my-cluster \
-  --security-group ${ECSSECURITYGROUP} \
-  --vpc ${VPCID} \
-  --subnets ${SUBNET1},${SUBNET2}
-```
-
-## ECS サービス作成
-以下のコマンドで ECS サービスを作成します。  
+以下のコマンドで ECS クラスタを作成します。  
 
 ```
 aws ecs create-cluster --cluster-name bluegreen-cluster 
 ```
+
+## ECS サービス作成
+
 
 ## タスク定義
 ECS でコンテナを起動するための設定をします。  
