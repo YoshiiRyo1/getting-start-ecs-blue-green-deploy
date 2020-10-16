@@ -1,0 +1,16 @@
+version: '3'
+services:
+  tomcat:
+    build: ./tomcat
+    image: <aws_account_id>.dkr.ecr.<region>.amazonaws.com/tomcat10
+    environment:
+      TZ: "Asia/Tokyo"
+    ports:
+      - "8080:8080"
+  web:
+    build: ./nginx
+    image: <aws_account_id>.dkr.ecr.<region>.amazonaws.com/nginx1192
+    environment:
+      TZ: "Asia/Tokyo"
+    ports:
+      - "80:80"

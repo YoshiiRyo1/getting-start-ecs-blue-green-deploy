@@ -37,114 +37,27 @@ Login Succeeded
 ```
 
 ### docker-compose.yml
-以下の内容でファイルを新規作成します。(aws_account_id と region はご自身のものへ変更)  
-
-<details>
-<summary>docker-compose.yml</summary><div>
-
-```
-version: '3'
-services:
-  tomcat:
-    build: ./tomcat
-    image: <aws_account_id>.dkr.ecr.<region>.amazonaws.com/tomcat10
-    environment:
-      TZ: "Asia/Tokyo"
-    ports:
-      - "8080:8080"
-  web:
-    build: ./nginx
-    image: <aws_account_id>.dkr.ecr.<region>.amazonaws.com/nginx1192
-    environment:
-      TZ: "Asia/Tokyo"
-    ports:
-      - "80:80"
-```
-</div></details>
+[docker-compose.yml](docker-compose.yml) ファイルを作成します。  
+(aws_account_id と region はご自身のものへ変更)    
 
 ### nginx/Dockerfile
 Docker Hub の公式イメージを使用します。  
-
-<details>
-<summary>nginx/Dockerfile</summary><div>
-
-```
-FROM nginx:1.19.2
-
-COPY ./conf /etc/nginx/conf.d/
-COPY ./html /usr/share/nginx/html/
-```
-</div></details>
+[nginx/Dockerfile](nginx/Dockerfile) ファイルを作成します。  
 
 ### nginx/conf/default.conf
 フロント用 nginx です。  
 80番ポートで受付、裏側の tomcat に流しています。  
 
-<details>
-<summary>nginx/conf/default.conf</summary><div>
-
-```
-server {
-    listen 80;
-    
-    access_log /dev/stdout;
-    error_log /dev/stdout;
-
-    location / {
-        root /usr/share/nginx/html;
-        index index.html index.htm;
-    }
-    
-    location = /health {
-        empty_gif;
-        break;
-    }
-    
-    location /sample {
-        proxy_set_header X-Forwarded-Host $host:$server_port;
-        proxy_set_header X-Forwarded-Server $host;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_pass http://localhost:8080/sample/;
-    }
-}
-```
-</div></details>
+[nginx/conf/default.conf](nginx/conf/default.conf) ファイルを作成します。  
 
 ### nginx/html/index.html
 動作確認用の index.html です。  
-
-<details>
-<summary>nginx/html/index.html</summary><div>
-
-```
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>HTML Sample</title>
-</head>
-<body>
-    <h1>HTML Sample</h1>
-</body>
-</html>
-```
-</div></details>
+[nginx/html/index.html](nginx/html/index.html) ファイルを作成します。  
 
 ### tomcat/Dockerfile
 Docker Hub の公式イメージを使用します。  
 サンプルの war をデプロイします。  
-
-<details>
-<summary>tomcat/Dockerfile</summary><div>
-
-```
-FROM tomcat:10.0.0-jdk11-corretto
-
-WORKDIR /usr/local/tomcat/webapps/
-RUN curl -O hhttps://tomcat.apache.org/tomcat-10.0-doc/appdev/sample/sample.war
-
-CMD ["catalina.sh", "run"]
-```
-</div></details>
+[tomcat/Dockerfile](tomcat/Dockerfile) ファイルを作成します。  
 
 ### ローカルで動作確認
 ファイル一式の作成が完了したらローカルで動作確認をします。  
