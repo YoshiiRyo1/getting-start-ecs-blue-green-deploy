@@ -1,0 +1,15 @@
+version: 0.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "<TASK_DEFINITION>"
+        LoadBalancerInfo:
+          ContainerName: "nginx1192"
+          ContainerPort: "80"
+        PlatformVersion: "1.4.0"
+        NetworkConfiguration:
+            AwsvpcConfiguration:
+              Subnets: ["パプリックサブネット1", "パプリックサブネット2"]
+              SecurityGroups: ["ECSセキュリティグループ"]
+              AssignPublicIp: "ENABLED"

@@ -1,0 +1,57 @@
+{
+    "executionRoleArn": "arn:aws:iam::<aws_account_id>:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/cloud9test",
+                    "awslogs-region": "ap-northeast-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            },
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "containerPort": 80
+                }
+            ],
+            "cpu": 0,
+            "environment": [],
+            "image": "<aws_account_id>.dkr.ecr.ap-northeast-1.amazonaws.com/nginx1192",
+            "name": "nginx1192"
+        },
+        {
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/cloud9test",
+                    "awslogs-region": "ap-northeast-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            },
+            "portMappings": [
+                {
+                    "hostPort": 8080,
+                    "protocol": "tcp",
+                    "containerPort": 8080
+                }
+            ],
+            "cpu": 0,
+            "environment": [],
+            "image": "<aws_account_id>.dkr.ecr.ap-northeast-1.amazonaws.com/tomcat10",
+            "name": "tomcat10"
+        }
+    ],
+    "placementConstraints": [],
+    "memory": "512",
+    "taskRoleArn": "arn:aws:iam::<aws_account_id>:role/ecsTaskCloud9test",
+    "family": "bluegreen",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "256",
+    "volumes": []
+}
