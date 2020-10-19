@@ -61,6 +61,12 @@ aws iam attach-role-policy --role-name ${ROLENAME} --policy-arn arn:aws:iam::aws
 ### AWSCodePipelineServiceRole-ap-northeast-1-bluegreen
 CodePipeline が使用するロールです。  
 
+後ほど使うので jq をインストールしておきます。  
+
+```
+sudo yum install -y jq
+```
+
 IAM ポリシーを作成するために以下の内容で [codepipelineservicerole.json](codepipelineservicerole.json) というファイルを作成します。
 
 IAM ロールをコマンドで作成する場合は以下を実行します。  
