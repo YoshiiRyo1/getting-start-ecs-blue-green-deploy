@@ -69,8 +69,8 @@ docker-compose up -d --build
 docker-compose ps
   Name                 Command               State           Ports         
 ---------------------------------------------------------------------------
-nginx1192   /docker-entrypoint.sh ngin ...   Up      0.0.0.0:80->80/tcp    
-tomcat10    catalina.sh run                  Up      0.0.0.0:8080->8080/tcp
+web_1       /docker-entrypoint.sh ngin ...   Up      0.0.0.0:80->80/tcp    
+tomcat_1    catalina.sh run                  Up      0.0.0.0:8080->8080/tcp
 ```
 
 上記のように2つのコンテナが State = Up と表示されれば OK です。  
