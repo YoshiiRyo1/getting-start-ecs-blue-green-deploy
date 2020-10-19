@@ -75,7 +75,7 @@ IAM ロールをコマンドで作成する場合は以下を実行します。
 ```
 ROLENAME=AWSCodePipelineServiceRole-ap-northeast-1-bluegreen
 
-aws iam create-role --role-name ${ROLENAME} --path /service-role/ --assume-role-policy-document file://AssumeCodepipeline.json
+aws iam create-role --role-name ${ROLENAME} --path /service-role/ --assume-role-policy-document file://codepipelineservicerole.json
 POLICYARN=`aws iam create-policy --policy-name ${ROLENAME} --policy-document file://codepipelineservicerole.json | jq -r .Policy.Arn`
 aws iam attach-role-policy --role-name ${ROLENAME} --policy-arn ${POLICYARN}
 ```
