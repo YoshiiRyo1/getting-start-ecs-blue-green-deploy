@@ -39,7 +39,7 @@ eval $(aws ecr get-login --no-include-email --region ap-northeast-1)
 
 ### docker-compose.yml
 [docker-compose.yml](docker-compose.yml) ファイルを作成します。  
-(aws_account_id はご自身のものへ変更)    
+(account_id はご自身のものへ変更)    
 
 ### nginx/Dockerfile
 Docker Hub の公式イメージを使用します。  
