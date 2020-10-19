@@ -88,7 +88,7 @@ curl http://localhost/index.html
 ～～省略～～
 
 
-curl http://localhost:8080/sample
+curl http://localhost:8080/sample/
 ～～省略～～
 <h1>Sample "Hello, World" Application</h1>
 <p>This is the home page for a sample application used to illustrate the
