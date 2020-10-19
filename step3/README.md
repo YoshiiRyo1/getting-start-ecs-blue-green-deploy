@@ -99,7 +99,7 @@ outlined in the Application Developer's Guide.
 うまく動かない、コンテナ内部を調べたい、そんな場合は以下のコマンドです。  
 
 ```
-docker exec -it  bash
+docker exec -it container_name  bash
 ```
 
 特に問題がなければ停止しておきます。  
