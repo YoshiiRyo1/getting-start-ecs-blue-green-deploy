@@ -87,7 +87,7 @@ aws ecs create-service --cluster bluegreen-cluster \
   --service-name bluegreen-service \
   --desired-count 1 \
   --task-definition bluegreen:1 \
-  --load-balancers targetGroupArn=${TG01ARN},containerName=web,containerPort=80 \
+  --load-balancers targetGroupArn=${TG01ARN},containerName=nginx1192,containerPort=80 \
   --launch-type FARGATE \
   --platform-version 1.4.0 \
   --network-configuration "awsvpcConfiguration={subnets=[${SUBNET1},${SUBNET2}],securityGroups=[${ECSSECURITYGROUP}],assignPublicIp=ENABLED}" \
