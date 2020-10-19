@@ -119,4 +119,4 @@ docker-compose push
 
 ----
 
-[Step4](../step4/README.md)
+<< [Step2](../step2/README.md)  |  [Step4](../step4/README.md)  >>

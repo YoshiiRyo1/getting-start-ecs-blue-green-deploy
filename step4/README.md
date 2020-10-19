@@ -124,4 +124,4 @@ ALB の FQDN でブラウザからアクセスし、「HTML Sample」が表示�
 
 ----
 
-[Step5](../step5/README.md)
+<< [Step3](../step3/README.md)  |  [Step5](../step5/README.md)  >>

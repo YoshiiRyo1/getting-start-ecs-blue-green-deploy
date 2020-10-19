@@ -133,3 +133,8 @@ CodePipeline からリンクで飛ぶ、もしくは、CodeDeploy 画面を直�
 4. BLUE シャットダウン
 
 ![image](2020-10-13_15h49_16.png)
+
+
+----
+
+<< [Step4](../step4/README.md)
