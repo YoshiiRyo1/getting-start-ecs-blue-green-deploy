@@ -18,7 +18,7 @@ IAM ロールをコマンドで作成する場合は以下を実行します。
 ROLENAME=ecsTaskExecutionRole
 
 aws iam create-role --role-name ${ROLENAME} --assume-role-policy-document file://ecsTaskExecutionRole.json
-aws iam attach-role-policy --role-name ${ROLENAME} --policy-arn arn:aws:iam::aws:policy/AmazonECSTaskExecutionRolePolicy
+aws iam attach-role-policy --role-name ${ROLENAME} --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
 ```
 
 
