@@ -18,7 +18,7 @@ AdministratorAccess 権限を持った IAM ユーザーを用意します。
 sed コマンド等で置換すると楽だと思います。  
 
 ```
-find . -name "*.json" | xargs  sed -i 's/<account-id>/123456789012/g'
+find . -name "*.json" | xargs  sed -i 's/<account_id>/123456789012/g'
 ```
 
 ## VPC
