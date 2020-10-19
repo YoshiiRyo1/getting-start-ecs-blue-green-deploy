@@ -9,7 +9,7 @@
 * tomcat10
 * nginx1192
 
-Cloud9 のコンソールから以下を実行します。(aws_account_id はご自身のものへ変更)  
+Cloud9 のコンソールから以下を実行します。    
 **Login Succeeded** と表示されれば成功です。  
 
 ```
