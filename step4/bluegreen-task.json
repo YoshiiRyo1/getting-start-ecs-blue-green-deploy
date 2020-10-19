@@ -1,5 +1,5 @@
 {
-    "executionRoleArn": "arn:aws:iam::<aws_account_id>:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::<account_id>:role/ecsTaskExecutionRole",
     "containerDefinitions": [
         {
             "logConfiguration": {
@@ -19,7 +19,7 @@
             ],
             "cpu": 0,
             "environment": [],
-            "image": "<aws_account_id>.dkr.ecr.ap-northeast-1.amazonaws.com/nginx1192",
+            "image": "<account_id>.dkr.ecr.ap-northeast-1.amazonaws.com/nginx1192",
             "name": "nginx1192"
         },
         {
@@ -40,13 +40,13 @@
             ],
             "cpu": 0,
             "environment": [],
-            "image": "<aws_account_id>.dkr.ecr.ap-northeast-1.amazonaws.com/tomcat10",
+            "image": "<account_id>.dkr.ecr.ap-northeast-1.amazonaws.com/tomcat10",
             "name": "tomcat10"
         }
     ],
     "placementConstraints": [],
     "memory": "512",
-    "taskRoleArn": "arn:aws:iam::<aws_account_id>:role/ecsTaskCloud9test",
+    "taskRoleArn": "arn:aws:iam::<account_id>:role/ecsTaskCloud9test",
     "family": "bluegreen",
     "requiresCompatibilities": [
         "FARGATE"
