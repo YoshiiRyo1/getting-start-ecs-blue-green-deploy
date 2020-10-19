@@ -70,7 +70,7 @@ aws ecs create-cluster --cluster-name bluegreen-cluster
 ## タスク定義
 ECS でコンテナを起動するための設定をします。  
 以下の内容で [bluegreen-task.json](bluegreen-task.json) というファイルを作成します。  
-(aws_account_id はご自身のものへ変更)   
+(account_id はご自身のものへ変更)   
 
 以下のコマンドでタスク定義を登録します。  
 
