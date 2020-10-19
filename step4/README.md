@@ -35,7 +35,7 @@ aws elbv2 create-target-group --name ${TG01NAME} \
   --vpc-id ${VPCID} \
   --health-check-protocol HTTP \
   --health-check-path "/health" \
-  --target-type
+  --target-type ip
   
 aws elbv2 create-target-group --name ${TG02NAME} \
   --protocol HTTP \
@@ -43,7 +43,7 @@ aws elbv2 create-target-group --name ${TG02NAME} \
   --vpc-id ${VPCID} \
   --health-check-protocol HTTP \
   --health-check-path "/health" \
-  --target-type
+  --target-type ip
 
 LBARN=`aws elbv2 describe-load-balancers --name ${LBNAME} | jq -r .LoadBalancers[].LoadBalancerArn`
 TG01ARN=`aws elbv2 describe-target-groups --names ${TG01NAME} | jq -r .TargetGroups[].TargetGroupArn`
