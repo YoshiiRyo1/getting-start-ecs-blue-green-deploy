@@ -99,7 +99,7 @@ outlined in the Application Developer's Guide.
 うまく動かない、コンテナ内部を調べたい、そんな場合は以下のコマンドです。  
 
 ```
-docker exec -it nginx1192 bash
+docker exec -it  bash
 ```
 
 特に問題がなければ停止しておきます。  
