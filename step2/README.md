@@ -85,4 +85,4 @@ aws iam attach-role-policy --role-name ${ROLENAME} --policy-arn ${POLICYARN}
 
 ----
 
-[Step3](../step3/README.md)
+<< [Step1](../step1/README.md)  |  [Step3](../step3/README.md)  >>
