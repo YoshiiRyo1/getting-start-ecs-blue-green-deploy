@@ -48,6 +48,14 @@ your-repo は任意の文字列に置き換えてください。
 aws codecommit create-repository --repository-name your-repo
 ```
 
+## S3バケット作成
+CodePipeline 用のバケットを作成します。  
+(account_id  はご自身のものへ変更)  
+
+```
+aws s3api create-bucket --bucket codepipeline-ap-northeast-1-<account_id>
+```
+
 ## CodePipeline
 CodeCommit への push をトリガーに ECS デプロイを自動化するパイプラインを作成します。  
 以下の内容で pipeline.json というファイルを作成します。  
