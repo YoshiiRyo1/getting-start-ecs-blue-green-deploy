@@ -22,7 +22,7 @@
                         "configuration": {
                             "BranchName": "master",
                             "PollForSourceChanges": "false",
-                            "RepositoryName": "bluegreen-repo"
+                            "RepositoryName": "your-repo"
                         },
                         "outputArtifacts": [
                             {
