@@ -13,6 +13,8 @@ Cloud9 のコンソールから以下を実行します。(aws_account_id はご
 **Login Succeeded** と表示されれば成功です。  
 
 ```
+export AWS_DEFAULT_REGION=ap-northeast-1
+
 aws ecr get-login-password | docker login --username AWS --password-stdin https://<aws_account_id>.dkr.ecr.ap-northeast-1.amazonaws.com
 
 Login Succeeded
