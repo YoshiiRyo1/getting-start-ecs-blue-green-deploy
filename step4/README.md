@@ -53,6 +53,12 @@ aws elbv2 create-listener --load-balancer-arn ${LBARN} \
   --default-actions Type=forward,TargetGroupArn=${TG01ARN}
 ```
 
+## CloudWatch ロググループの作成
+ECS ログ出力先のロググループを作成します。
+
+```
+aws logs create-log-group --log-group-name "/ecs/cloud9test"
+```
 
 ## ECS クラスターの作成
 以下のコマンドで ECS クラスタを作成します。  
