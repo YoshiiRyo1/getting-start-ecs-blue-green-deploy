@@ -58,10 +58,10 @@ aws s3api create-bucket --bucket codepipeline-ap-northeast-1-<account_id>
 
 ## CodePipeline
 CodeCommit への push をトリガーに ECS デプロイを自動化するパイプラインを作成します。  
-以下の内容で pipeline.json というファイルを作成します。  
-(aws_account_id  はご自身のものへ変更)  
 
 [pipeline.json](pipeline.json) を作成します。  
+(aws_account_id, your-repo はご自身ものへ変更)  
+
 ファイルを作成したら以下のコマンドでパイプラインを作成します。  
 ```
 aws codepipeline create-pipeline --cli-input-json file://pipeline.json
