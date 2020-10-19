@@ -1,21 +1,20 @@
 # Step 3
 ## ECR
 リポジトリを作成します。  
-<a href="https://ap-northeast-1.console.aws.amazon.com/ecr/repositories?region=ap-northeast-1" target="_blank">ECR 画面</a> を開きます。  
-
-**リポジトリを作成** をクリックしてリポジトリを作成します。  
 今回は2つ作成してください。  
 
 * tomcat10
 * nginx1192
 
-Cloud9 のコンソールから以下を実行します。    
-**Login Succeeded** と表示されれば成功です。  
+```
+aws ecr create-repository --repository-name tomcat10
+aws ecr create-repository --repository-name nginx1192
+```
+
+以下のコマンド実行し **Login Succeeded** と表示されれば成功です。  
 
 ```
 eval $(aws ecr get-login --no-include-email --region ap-northeast-1)
-
-Login Succeeded
 ```
 
 ## Dockerfile
