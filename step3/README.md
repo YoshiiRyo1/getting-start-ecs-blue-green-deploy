@@ -7,6 +7,8 @@
 * nginx1192
 
 ```
+export AWS_DEFAULT_REGION=ap-northeast-1
+
 aws ecr create-repository --repository-name tomcat10
 aws ecr create-repository --repository-name nginx1192
 ```
