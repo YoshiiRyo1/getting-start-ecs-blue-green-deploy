@@ -9,7 +9,7 @@ ECS タスク実行用の IAM ロールです。
 * AmazonECSTaskExecutionRolePolicy
 
 信頼関係は以下にします。  
-以下の内容で [ecsTaskExecutionRole.json](ecsTaskExecutionRole.json) というファイルを作成します。  
+この内容で [ecsTaskExecutionRole.json](ecsTaskExecutionRole.json) というファイルを作成します。  
 
 
 IAM ロールをコマンドで作成する場合は以下を実行します。  
@@ -29,7 +29,7 @@ ECS タスクが使用する IAM ロールです。
 実際には ECS タスクから DynamoDB や S3 へアクセスしたい場合はここにポリシーを設定します。  
 
 信頼関係は以下にします。  
-以下の内容で [ecsTaskCloud9test.json](ecsTaskCloud9test.json) というファイルを作成します。  
+この内容で [ecsTaskCloud9test.json](ecsTaskCloud9test.json) というファイルを作成します。  
 
 IAM ロールをコマンドで作成する場合は以下を実行します。  
 
@@ -47,7 +47,7 @@ CodeDeploy が使用するロールです。
  * AWSCodeDeployRoleForECS
 
 信頼関係は以下にします。  
-以下の内容で [ecsCodeDeployRole.json](ecsCodeDeployRole.json) というファイルを作成します。  
+この内容で [ecsCodeDeployRole.json](ecsCodeDeployRole.json) というファイルを作成します。  
 
 IAM ロールをコマンドで作成する場合は以下を実行します。  
 
@@ -67,7 +67,9 @@ CodePipeline が使用するロールです。
 sudo yum install -y jq
 ```
 
-IAM ポリシーを作成するために以下の内容で [codepipelineservicerole.json](codepipelineservicerole.json) というファイルを作成します。
+この内容で [AssumeCodepipeline.json](AssumeCodepipeline.json) というファイルを作成します。
+
+この内容で [codepipelineservicerole.json](codepipelineservicerole.json) というファイルを作成します。
 
 IAM ロールをコマンドで作成する場合は以下を実行します。  
 
@@ -75,7 +77,7 @@ IAM ロールをコマンドで作成する場合は以下を実行します。
 ```
 ROLENAME=AWSCodePipelineServiceRole-ap-northeast-1-bluegreen
 
-aws iam create-role --role-name ${ROLENAME} --path /service-role/ --assume-role-policy-document file://codepipelineservicerole.json
+aws iam create-role --role-name ${ROLENAME} --path /service-role/ --assume-role-policy-document file://AssumeCodepipeline.json
 POLICYARN=`aws iam create-policy --policy-name ${ROLENAME} --policy-document file://codepipelineservicerole.json | jq -r .Policy.Arn`
 aws iam attach-role-policy --role-name ${ROLENAME} --policy-arn ${POLICYARN}
 ```
