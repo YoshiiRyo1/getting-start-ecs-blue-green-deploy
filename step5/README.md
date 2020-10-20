@@ -73,7 +73,7 @@ CodeCommit ～ CodePipeline 連携をする Events を作ります。
 ```
 aws events put-rule --name codepipeline-bluegreen \
   --event-pattern "{\"source\":[\"aws.codecommit\"],\"detail-type\":[\"CodeCommit Repository State Change\"],\"resources\":[\"arn:aws:codecommit:ap-northeast-1:<account_id>:<your-repo>\"],\"detail\":{\"event\":[\"referenceCreated\",\"referenceUpdated\"],\"referenceType\":[\"branch\"],\"referenceName\":[\"master\"]}}" \
-  --role-arn "arn:aws:iam::377258618577:role/service-role/cweCodepipelineRole"
+  --role-arn "arn:aws:iam::<account_id>:role/service-role/cweCodepipelineRole"
 ```
 
 ### マネジメントコンソールで確認
