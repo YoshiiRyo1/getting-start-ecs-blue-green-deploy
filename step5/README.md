@@ -95,7 +95,7 @@ cd your-repo
 「タスク定義」の手順で作成した bluegreen-task.json をコピーして taskdef.json にリネームします。  
 
 ```
-cp ../step4/bluegreen-task.json taskdef.json
+cp ../anydirectories/bluegreen-task.json taskdef.json
 ```
 
 
