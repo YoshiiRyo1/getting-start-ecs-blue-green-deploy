@@ -45,7 +45,7 @@ sudo yum -y install git
 your-repo は任意の文字列に置き換えてください。  
 
 ```
-aws codecommit create-repository --repository-name your-repo
+aws codecommit create-repository --repository-name <your-repo>
 ```
 
 ## S3バケット作成
@@ -67,6 +67,15 @@ CodeCommit への push をトリガーに ECS デプロイを自動化するパ�
 aws codepipeline create-pipeline --cli-input-json file://pipeline.json
 ```
 
+CodeCommit ～ CodePipeline 連携をする Events を作ります。  
+コマンド長いのでコピペをミスらないように注意します。  
+(account_id, your-repo はご自身ものへ変更)  
+```
+aws events put-rule --name codepipeline-bluegreen \
+  --event-pattern "{\"source\":[\"aws.codecommit\"],\"detail-type\":[\"CodeCommit Repository State Change\"],\"resources\":[\"arn:aws:codecommit:ap-northeast-1:<account_id>:<your-repo>\"],\"detail\":{\"event\":[\"referenceCreated\",\"referenceUpdated\"],\"referenceType\":[\"branch\"],\"referenceName\":[\"master\"]}}" \
+  --role-arn "arn:aws:iam::377258618577:role/service-role/cweCodepipelineRole"
+```
+
 ### マネジメントコンソールで確認
 <a href="https://ap-northeast-1.console.aws.amazon.com/codesuite/codepipeline/start?region=ap-northeast-1" target="_blank">CodePipeline</a>  
 
@@ -80,10 +89,10 @@ aws codepipeline create-pipeline --cli-input-json file://pipeline.json
 
 ### git clone
 リポジトリを Cloud9 環境にクローンします。  
-your-repo は任意の文字列に置き換えてください。  
+your-repo はご自身ものに置き換えてください。  
 
 ```
-git clone https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/your-repo
+git clone https://git-codecommit.ap-northeast-1.amazonaws.com/v1/repos/<your-repo>
 cd your-repo
 ```
 
