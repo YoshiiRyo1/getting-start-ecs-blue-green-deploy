@@ -14,7 +14,7 @@
 AdministratorAccess 権限を持った IAM ユーザーを用意します。  
 
 ## AWS アカウントの置換
-例として作成している json ファイルは AWS アカウントが `<account-id>` になっています。  
+例として作成している json ファイルは AWS アカウントが `<account_id>` になっています。  
 sed コマンド等で置換すると楽だと思います。  
 
 ```

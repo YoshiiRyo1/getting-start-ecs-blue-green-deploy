@@ -20,7 +20,7 @@ aws deploy create-application --application-name bluegreen-cluster --compute-pla
 aws deploy create-deployment-group  \
   --application-name bluegreen-cluster \
   --deployment-group-name bluegreen-cluster-group \
-  --service-role-arn arn:aws:iam::<account-id>:role/ecsCodeDeployRole \
+  --service-role-arn arn:aws:iam::<account_id>:role/ecsCodeDeployRole \
   --load-balancer-info "targetGroupPairInfoList=[{targetGroups=[{name=${TG01NAME}},{name=${TG02NAME}}],prodTrafficRoute={listenerArns=[${LSNARN}]}}]" \
   --ecs-services serviceName=bluegreen-service,clusterName=bluegreen-cluster \
   --blue-green-deployment-configuration "terminateBlueInstancesOnDeploymentSuccess={action=TERMINATE,terminationWaitTimeInMinutes=5},deploymentReadyOption={actionOnTimeout=CONTINUE_DEPLOYMENT,waitTimeInMinutes=0}" \
