@@ -47,7 +47,7 @@ Environment Type は **Create a new EC2 instance for environment (direct access)
 AWS Managed Temporary Credentials (AMTC) を無効にしておきます。  
 無効にする方法は以下に詳しいです。  
 
-[Cloud9からIAM Roleの権限でAWS CLIを実行する](https://hatenablog-parts.com/embed?url=https://dev.classmethod.jp/articles/execute-aws-cli-with-iam-role-on-cloud9/)
+[Cloud9からIAM Roleの権限でAWS CLIを実行する](https://dev.classmethod.jp/articles/execute-aws-cli-with-iam-role-on-cloud9/)
 
 
 ### Cloud9 IDE を開く
